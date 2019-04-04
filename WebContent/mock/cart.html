@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+
+<link href="../css/original/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/original/common.css" rel="stylesheet">
+
+<link href="../css/style2.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	<script src="js/bootstrap.min.js">
+</script>
+<title>cart</title>
+</head>
+<body>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item-success"><a href="#">ユーザ一覧</a></li>
+			<li class="breadcrumb-item-danger"><a href="#">ログアウト</a></li>
+			<li class="breadcrumb-item active" aria-current="page">カート</li>
+		</ol>
+	</nav>
+	<div class="p-2 bd-highlight">
+		<input type="text" id="userName" name="userName" />さん
+	</div>
+	<div class="container">
+		<div class="row center">
+			${cartActionMessage}
+			<h5 class=" col s12 light">買い物かご</h5>
+		</div>
+		<div class="section">
+			<form action="ItemDelete" method="POST">
+				<div class="row">
+					<div class="col s12">
+						<div class="col s6 center-align">
+							<button type="button" class="btn btn-lg btn-primary" disabled>削除</button>
+
+							<button type="button" class="btn btn-lg btn-primary" disabled>レジに進む</button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<c:forEach var="item" items="${cart}" varStatus="status">
+						<div class="col s12 m3">
+							<div class="card">
+								<div class="card-image">
+									<a href="Item?item_id=${item.id}"><img
+										src="img/${item.fileName}"> </a>
+								</div>
+								<div class="card-content">
+									<span class="card-title">${item.name}</span>
+									<p>${item.price}円</p>
+									<p>
+										<input type="checkbox" id="${status.index}"
+											name="delete_item_id_list" value="${item.id}" /> <label
+											for="${status.index}">削除</label>
+									</p>
+								</div>
+							</div>
+						</div>
+						<c:if test="${(status.index+1) % 4 == 0 }">
+				</div>
+				<div class="row">
+					</c:if>
+					</c:forEach>
+
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

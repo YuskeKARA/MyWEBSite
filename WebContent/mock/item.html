@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+
+<link href="../css/original/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/original/common.css" rel="stylesheet">
+
+<link href="../css/style2.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	<script src="js/bootstrap.min.js">
+</script>
+<title>item</title>
+</head>
+<body>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item-success"><a href="#">ユーザ一覧</a></li>
+			<li class="breadcrumb-item-danger"><a href="#">ログアウト</a></li>
+			<li class="breadcrumb-item active" aria-current="page">カート</li>
+		</ol>
+	</nav>
+	<div class="p-2 bd-highlight">
+		<input type="text" id="userName" name="userName" />さん
+	</div>
+	<div class="section no-pad-bot" id="index-banner">
+		<div class="container">
+			<br> <br>
+			<div class="row center">
+				<div class="col s4">
+					<c:if test="${searchWord != null}">
+						<a
+							href="ItemSearchResult?search_word=${searchWord}&page_num=${pageNum}"
+							class="btn waves-effect waves-light">検索結果へ </a>
+					</c:if>
+				</div>
+				<div class="col s4">
+					<h5 class=" col s12 light">商品詳細</h5>
+				</div>
+				<div class="col s4">
+					<form action="ItemAdd" method="POST">
+						<input type="hidden" name="item_id" value="${item.id}">
+						<button type="button" class="btn btn-lg btn-primary" disabled>削除</button>
+					</form>
+				</div>
+			</div>
+			<br> <br>
+			<div class="row">
+				<div class="col s6">
+					<div class="card">
+						<div class="card-image">
+							<img src="img/${item.fileName}">
+						</div>
+					</div>
+				</div>
+				<div class="col s6">
+					<h4>${item.name}</h4>
+					<h5>${item.price}円</h5>
+					<p>${item.detail}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+
+<link href="../css/original/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/original/common.css" rel="stylesheet">
+
+<link href="../css/style2.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	<script src="js/bootstrap.min.js">
+</script>
+<title>buyConfirm</title>
+</head>
+<body>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item-success"><a href="#">ユーザ一覧</a></li>
+			<li class="breadcrumb-item-danger"><a href="#">ログアウト</a></li>
+			<li class="breadcrumb-item active" aria-current="page">カート</li>
+		</ol>
+	</nav>
+	<div class="p-2 bd-highlight">
+		<input type="text" id="userName" name="userName" />さん
+	</div>
+	<div class="container">
+		<div class="row center">
+			<h3 class="hello">購入</h3>
+		</div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th class="center">商品名</th>
+					<th class="center">単価</th>
+					<th class="center">小計</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="cartInItem" items="${cart}">
+					<tr>
+						<td class="center">${cartInItem.name}</td>
+						<td class="center">${cartInItem.price}円</td>
+						<td class="center">${cartInItem.price}円</td>
+					</tr>
+				</c:forEach>
+				<tr>
+
+					<td class="center">${bdb.deliveryMethodName}</td>
+					<td class="center"></td>
+					<td class="center">${bdb.deliveryMethodPrice}円</td>
+				</tr>
+				<tr>
+					<td class="center"></td>
+					<td class="center">合計</td>
+					<td class="center">${bdb.totalPrice}円</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="hello">
+		<div class="col s12">
+			<form action="BuyResult" method="post">
+				<button class="btn  waves-effect waves-light  col s4 offset-s4"
+					type="submit">購入</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+
+<title>buy</title>
+<link href="../css/original/style.css" rel="stylesheet">
+<link href="../css/original/common.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<link href="../css/style2.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	<script src="js/bootstrap.min.js">
+</script>
+
+<title>buyResult</title>
+</head>
+<body>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item-success"><a href="#">ユーザ一覧</a></li>
+			<li class="breadcrumb-item-danger"><a href="#">ログアウト</a></li>
+			<li class="breadcrumb-item active" aria-current="page">カート</li>
+		</ol>
+	</nav>
+	<div class="p-2 bd-highlight">
+		<input type="text" id="userName" name="userName" />さん
+	</div>
+	<div class="container">
+		<div class="row center">
+			<h5 class=" col s12 ">購入が完了しました</h5>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<div class="col s6 center-align">
+					<a href="Index" class="btn  waves-effect waves-light ">引き続き買い物をする</a>
+				</div>
+				<div class="col s6 center-align">
+					<a href="UserData" class="btn  waves-effect waves-light">ユーザー情報へ</a>
+				</div>
+			</div>
+		</div>
+		<div class="row center">
+			<h5 class=" col s12 light">購入詳細</h5>
+		</div>
+		<!--  購入 -->
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th class="center">購入日時</th>
+					<th class="center">配送方法</th>
+					<th class="center">合計金額</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="center">${resultBDB.formatDate}</td>
+					<td class="center">${resultBDB.deliveryMethodName}</td>
+					<td class="center">${resultBDB.totalPrice}円</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- 詳細 -->
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th class="center">商品名</th>
+				<th class="center">単価</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="buyIDB" items="${buyIDBList}">
+				<tr>
+					<td class="center">${buyIDB.name}</td>
+					<td class="center">${buyIDB.price}円</td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td class="center">${resultBDB.deliveryMethodName}</td>
+				<td class="center">${resultBDB.deliveryMethodPrice}円</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
