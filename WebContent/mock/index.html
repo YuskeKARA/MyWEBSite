@@ -2,50 +2,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
-
 <link href="../css/original/style.css" rel="stylesheet">
-<link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/original/common.css" rel="stylesheet">
 
 <link href="../css/style2.css" rel="stylesheet">
 
-</script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
 <title>index</title>
 </head>
 <body>
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item-success"><a href="#">ユーザ一覧</a></li>
-			<li class="breadcrumb-item-danger"><a href="#">ログアウト</a></li>
+			<li class="breadcrumb-item-success"><a href="#">ユーザ一覧</a>/</li>
+			<li class="breadcrumb-item-danger"><a href="#">ログアウト</a>/</li>
 			<li class="breadcrumb-item active" aria-current="page">カート</li>
 		</ol>
+		<div class="p-2 bd-highlight">${userInfo.name}さん</div>
 	</nav>
-	<div class="p-2 bd-highlight">
-		<input type="text" id="userName" name="userName" />さん
+	<br>
+	<br>
+	<h1 class="hello">DEFマート</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 text-right">
+				<h1>あなたに合った1足を!!</h1>
+			</div>
+			<div class="col-sm-6">
+				<h1>
+					<span class="badge badge-secondary">新着商品多数入荷</span>
+				</h1>
+			</div>
+		</div>
+		<!-- 中央寄せしたければ<nav class="navbar navbar-light bg-light">のあとにjustify-content-centerなどを置く -->
+		<nav class="navbar navbar-light bg-light justify-content-center">
+			<form class="form-inline">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</nav>
 	</div>
-
-	<div class="section no-pad-bot" id="index-banner">
-		<div class="container">
-			<br> <br>
-			<h1 class="hello">DEFマート</h1>
-			<h1 class="hello">
-				<div class="row center">
-					<h1>
-						あなたに合った1足を<span class="badge badge-secondary">新着商品多数入荷</span>
-					</h1>
-				</div>
-				<div class="hello">
-					<nav class="navbar navbar-light bg-light">
-						<form class="form-inline">
-							<input class="form-control mr-sm-2" type="search"
-								placeholder="Search" aria-label="Search">
-							<button class="btn btn-outline-success my-2 my-sm-0"
-								type="submit">Search</button>
-						</form>
-					</nav>
-				</div>
-			</h1>
-			<br> <br>
+	<br>
+	<br>
 </body>
 </html>
